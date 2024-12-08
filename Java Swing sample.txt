@@ -1,0 +1,45 @@
+//Java Swing
+//JScrollBar , JComboBox , JTabbedPane
+
+
+import javax.swing.*;
+import java.awt.*;
+
+class Main {
+    public static void main(String[] args) {
+        JFrame f1 = new JFrame();
+        JPanel p1 = new JPanel();
+        JPanel p2 = new JPanel();
+        JPanel p3 = new JPanel();
+        JTabbedPane tp = new JTabbedPane();
+        tp.addTab("Panel1", p1);
+        tp.addTab("Panel2", p2);
+        tp.addTab("Panel3", p3);
+
+        // Set layout and bounds
+        f1.setLayout(null);
+        tp.setBounds(10, 10, 390, 220); // Corrected bounds (x, y, width, height)
+
+        tp.setBackground(Color.white);
+
+//         Add tabbed pane to the frame
+        f1.add(tp);
+
+                String[] course = {"Java", "Python", "C" , "DSA" , "SQL" , "C++"};
+        JComboBox<String> cb = new JComboBox<>(course); // Initialize with course array
+        cb.setBackground(Color.CYAN);
+        cb.setForeground(Color.BLUE);
+        JScrollBar sc=new JScrollBar();
+        sc.setBackground(Color.ORANGE);
+        sc.setBounds(379,32,20,199);
+        f1.add(sc);
+        f1.add(cb);
+        cb.setBounds(20,40,120,30);
+        f1.add(tp,sc);
+        f1.add(tp,cb);
+        // Frame settings
+        f1.setVisible(true);
+        f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f1.setBounds(200, 200, 430, 280); // Adjusted frame size
+    }
+}
